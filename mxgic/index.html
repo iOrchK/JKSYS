@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Egresos</title>
+		<link rel="shortcut icon" href="img/ico.png"/>
+		<style type="text/css" media="screen">
+			@font-face {
+				font-family: 'myriad_pro_light';
+				src: url('../fonts/myriad-pro/MyriadPro-Light.woff') format('woff');
+				font-style: normal;
+				font-weight: bold;
+			}
+
+			@font-face {
+				font-family: 'MyriadPro-Regular';
+				font-style: normal;
+				font-weight: normal;
+				src: url('../fonts/myriad-pro-regular/MyriadPro-Regular.woff') format('woff');
+			}
+
+			header { background: navy; color: white; margin: 0px; padding: 0px; 
+				position: fixed;
+				width: 100%;
+				padding-top: -75px;
+				font-family: MyriadPro-Regular;
+
+				-webkit-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);
+				-moz-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);
+				box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75); 
+			}
+
+			* input, * textarea { font-family: 'myriad_pro_light'; font-size: 16px; }
+
+			header input{ 
+				padding: 0px;
+				line-height: 50px;
+				vertical-align: top;
+			}
+
+			* input[type="date"]::-webkit-clear-button {
+			    display: none;
+			}
+
+			/* Removes the spin button */
+			* input[type="date"]::-webkit-inner-spin-button { 
+			    display: none;
+			}
+
+			* input[type="date"]::-webkit-calendar-picker-indicator {
+			    background: none;
+			    color: crimson;
+			}
+
+			* fieldset { 
+				width: 100%;
+				font-family: 'myriad_pro_light';
+			}
+
+			* table {
+			  	display: table;
+			  	border-collapse: collapse;
+			  	border: 1px solid;
+			  	width: 99%;
+			  	margin: auto;
+			  	margin-top: 93px;
+			  	font-family: 'myriad_pro_light';
+			}
+			* table caption { 
+				background: black; 
+				border: 1px solid black; 
+				color: white;
+				 
+				width-right: -2px; 
+				margin-bottom: -2px; 
+			}
+			* table thead, table tbody#contenedor-egresos {
+			  width: 100%;
+			}
+			* table thead {
+			  overflow-y: scroll;
+			  display: table;
+			  table-layout: fixed;
+			  font-size: 12px;
+			  width: 100%;
+			}
+			* table tbody#contenedor-egresos {
+			  overflow: auto;
+			  overflow-x: hidden; 
+			  height: 500px;
+			  display: block;
+			}
+			* table tr {
+			  width: 100%;
+			  text-align: left;
+			  display: table;
+			  table-layout: fixed;
+			}
+			* table tbody#contenedor-egresos tr:hover{
+				filter:brightness(0.7);
+			}
+
+			* input[type=button][disabled=disabled] { -webkit-filter: grayscale(50%); }
+
+			* input[type=button][disabled=disabled]:hover { border-color: red }
+
+			* input[type=button][disabled=disabled]:active { filter:brightness(100%) !important; }
+
+			* input[type=button] {
+				text-decoration: none;
+			    padding: 5px;
+			    /*font-weight: 600;
+			    font-size: 20px;*/
+			    color: #ffffff;
+			    background-color: crimson;
+			    border-radius: 6px;
+			    border: 1.5px solid red;
+			}
+
+			* input[type=button]:hover { border-color: darkred; }
+
+			* input[type=button]:active { filter:brightness(0.7); }
+
+			* input[type=button]:focus{ outline: 0px; }
+		</style>
+	</head>
+	<body style="background:silver; margin:0px">
+		<header>
+			<a href="../index.html" title="Click para regresar al Home">
+				<img src="img/logo.png" width="50" height="50" style="margin-left:5px; cursor: pointer">
+			</a>
+			<strong style="margin-left: 20px; line-height: 50px; vertical-align: top">Fecha: </strong><input type="date" id="txt-fecha">
+			<strong style="margin-left: 20px; line-height: 50px; vertical-align: top">Egresos del día: </strong><input type="text" id="txt-tot-egr-dia" placeholder="Cargando ..." disabled="disabled" size="12">
+			<strong style="margin-left: 20px; line-height: 50px; vertical-align: top">Egresos del mes: </strong><input type="text" id="txt-tot-egr-mes" placeholder="Cargando ..." disabled="disabled" size="20">
+			<strong style="margin-left: 20px; line-height: 50px; vertical-align: top">Egresos del año: </strong><input type="text" id="txt-tot-egr-ano" placeholder="Cargando ..." disabled="disabled" size="20">
+		</header><!-- /header -->
+
+		<aside style="float:left; width:48%">
+			<fieldset style="background:whitesmoke; margin-top:78px">
+				<legend>
+					<input type="button" id="btn-nuevo" value="Nuevo">
+					<input type="button" id="btn-agregar" value="Agregar">
+					<input type="button" id="btn-modificar" value="Modificar" disabled="disabled">
+					<input type="button" id="btn-cancelar" value="Cancelar" disabled="disabled">
+					<input type="button" id="btn-reactivar" value="Reactivar" disabled="disabled">
+					<input type="button" id="btn-reg-cat" value="Registrar categoría" disabled="disabled">
+				</legend>
+				<strong style="font-family: MyriadPro-Regular">Datos el egreso</strong><hr>
+				<form id="formEgreso" accept-charset="utf-8">
+					Folio: <input type="number" id="txt-folio" name="txt-fol" placeholder="Cargando ..." min="0" max="99999999" readonly="readonly" style="filter:brightness(0.8)">
+					Fecha: <input type="text" id="txt-fec-con" placeholder="Cargando ..." size="35" readonly="readonly" style="filter:brightness(0.8);">
+					<input type="date" id="txt-fec-egr" name="txt-fec-egr" readonly="readonly" style="filter:brightness(0.8)">
+					<p>
+						Categoría: <input type="text" id="txt-categoria" placeholder="Lista de categorías" size="45" list="listCategoria">
+						<datalist id="listCategoria">
+							
+						</datalist>
+						<input type="hidden" id="txt-cat" name="txt-cat">
+						Monto: <input type="number" id="txt-monto" name="txt-mon" placeholder="$" value="0" min="0" max="999999">
+					</p>
+					<p style="display: inline; vertical-align: top">
+						Descripción: <textarea id="txt-descripcion" name="txt-des" rows="4" cols="50"></textarea>
+					</p>
+					<p>
+						<strong style="font-family: MyriadPro-Regular">Estado: </strong>
+						<input type="radio" name="estado" value="Cargado" checked>Cargado
+						<input type="radio" name="estado" value="Vencido">Vencido
+						<input type="radio" name="estado" value="Pagado">Pagado
+					</p>
+				</form>
+			</fieldset>
+		</aside>
+
+		<aside style="float:right; width:48%">
+			<table border="0">
+				<caption><strong>Historial de egresos</strong></caption>
+				<thead style="background:black; color:white">
+					<tr>
+						<th style="width: 10%">Num.</th>
+						<th style="width: 30%">Categoría</th>
+						<th style="width: 45%">Descripción</th>
+						<th style="width: 15%">Monto</th>
+					</tr>
+				</thead>
+				<tbody id="contenedor-egresos" style="background:white">
+					<tr>
+						<td colspan="4"><center>Cargando ...</center></td>
+					</tr>
+				</tbody>
+			</table>
+		</aside>
+
+		<script src="../jquery/jquery-3.2.0.min.js"></script>
+		<script src="script_index.js"></script>
+	</body>
+</html>

@@ -1,0 +1,270 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: Tahoma, Geneva, sans-serif;
+}
+
+body{ 
+	background-color: silver; 
+	text-align: center;
+}
+
+* input[type=text], * input[type=number], * input[type=date], * select{ max-width: 95%; }
+
+* input.float-button{
+	background-size: 30px 30px;
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	padding: 0px;
+	margin: 5px;
+}
+
+* input.menu{ 
+	background-color: darkblue;
+	color: white;
+	border: 0px;
+	padding: 5px;
+	margin-left: 20px;
+	margin-top: 9.5px;
+	vertical-align: top;
+}
+
+* input[type=button]:focus{ outline: 0px; }
+
+* input[type=button]:hover{ 
+	filter:brightness(0.7); 
+	-webkit-transform: scale(1.5);
+    transform: scale(1.5); 
+}
+
+* input[type=button]:active{ filter:brightness(1); }
+
+* input[type=button]:focus{ outline: 0px; }
+
+header{
+	background-color: black;
+	color: whitesmoke;
+	width: 100%;
+	padding: 0px 5px;
+	margin-bottom: 100px;
+	text-align: left;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+header img#logo{ margin-top: 2.5px; }
+
+header label#title{ 
+	vertical-align: top; 
+	display: inline-block;
+	margin-top: 4px;
+	font-size: 30px;
+}
+
+header input#btn-config{ 
+	background-image: url('../img/btn-settings.png'); 
+	float: right;
+	margin-right: 10px !important;
+}
+
+div#alert{
+	background-color: blue;
+	position: fixed;
+	top: 0;
+	left: 0;
+	text-align: center;
+	width: 100%;
+	height: 75px;
+	padding: 10px 0px;
+	display: none;
+}
+
+div#alert label#msg{ 
+	color: whitesmoke;
+	display: block;
+}
+
+/********************************************************************************/
+/****************************** Style Settings **********************************/
+/********************************************************************************/
+
+div#cont-settings{ 
+	width: 100% !important;
+	margin-top: 55px !important;
+	display: none;
+}
+
+div#cont-settings div#cont-autentication input#btn-val-user{ 
+	background-image: url('../img/btn-key.png'); 
+	margin:  0px;
+}
+
+div#cont-settings input#btn-close-config, div#alert input#btn-close, div#cont-invent input#btn-close-invent{ background-image: url('../img/btn-close.png'); }
+
+div#cont-settings div#cont-resp-settings fieldset{
+	width: 300px; 
+	max-width: 80%;
+	border-radius: 5px; 
+	padding: 10px 10px; 
+	margin: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	display: inline-block;
+	vertical-align: top;
+}
+
+div#cont-settings div#cont-resp-settings fieldset:hover{ background-color: papayawhip; }
+
+div#cont-settings div#cont-resp-settings h3{ background-color: #5e2129; color: whitesmoke;  }
+
+div#cont-settings div#cont-resp-settings fieldset legend{ 
+	background-color: #5e2129; 
+	color: whitesmoke; 
+	padding: 3px 5px; 
+	border-radius: 3px;
+}
+
+div#cont-settings div#cont-resp-settings fieldset input#btn-act-admin{ background-image: url('../img/btn-update.png'); }
+
+div#cont-settings div#cont-resp-settings fieldset input#btn-reg-user{ background-image: url('../img/btn-save.png'); }
+
+div#cont-settings div#cont-resp-settings fieldset input#btn-del-user{ background-image: url('../img/btn-del.png'); }
+
+/********************************************************************************/
+/************************ Style Inventario ******************************/
+/********************************************************************************/
+
+div#cont-invent{
+	display: none;
+	background-color: white;
+	width: 1000px;
+	max-width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 55px;
+	padding:  5px;
+}
+
+div#cont-invent input#btn-review-invent{ background-image: url('../img/btn-review.png'); }
+
+div#cont-invent div#cont-resp-invent{ 
+	width: 90%;
+	height: 300px;
+	margin-left: auto;
+	margin-right: auto;
+	overflow-y: scroll;
+}
+
+div#cont-invent div#cont-resp-invent::-webkit-scrollbar {
+    width: 12px;
+}
+
+div#cont-invent div#cont-resp-invent::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+
+div#cont-invent div#cont-resp-invent::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,255,0.9); 
+}
+
+div#cont-invent div#cont-resp-invent table{
+	background-color: white;
+	width: 99.5%;
+}
+
+div#cont-invent div#cont-resp-invent table thead{ 
+	background-color: black;
+	color: white;
+}
+
+div#cont-invent div#cont-resp-invent table tbody tr:hover{ background-color: paleturquoise; }
+
+div#cont-invent div#cont-resp-invent table tbody tr td{ vertical-align: top; }
+
+/********************************************************************************/
+/************************ Style Section and Asides ******************************/
+/********************************************************************************/
+section#cont-prin{ margin-top: 50px !important; }
+
+div#cont-invent h3, section#cont-prin h3, aside#left h3, aside#right h3, aside#resume h3{ 
+	background-color: darkblue; 
+	color: whitesmoke; 
+	margin-bottom: 10px; 
+}
+
+aside#left, aside#right, aside#resume{
+	background-color: white;
+	width: 250px;
+	max-width: 100%;
+	padding: 5px;
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	vertical-align: top;
+	display: inline-block;
+	-webkit-box-shadow: 0px 0px 15px 2.5px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 0px 15px 2.5px rgba(0,0,0,0.5);
+	box-shadow: 0px 0px 15px 2.5px rgba(0,0,0,0.5);
+}
+
+aside#right div#cont-stock, aside#resume div#cont-resume-moves{ margin-top: 10px; }
+
+section#cont-prin, div#cont-settings{
+	background-color: white;
+	width: 500px;
+	max-width: 100%;
+	padding: 5px;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	vertical-align: top;
+	display: inline-block;
+	-webkit-box-shadow: 0px 0px 15px 2.5px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 0px 15px 2.5px rgba(0,0,0,0.5);
+	box-shadow: 0px 0px 15px 2.5px rgba(0,0,0,0.5);
+}
+
+section#cont-prin fieldset{
+	width: 700px; 
+	max-width: 80%;
+	border-radius: 5px; 
+	padding: 10px 10px; 
+	margin: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+section#cont-prin fieldset:hover{ background-color: paleturquoise; }
+
+section#cont-prin fieldset legend{ 
+	background-color: darkblue; 
+	color: whitesmoke; 
+	padding: 3px 5px; 
+	border-radius: 3px;
+}
+
+section#cont-prin fieldset input#btn-reg-pro{ background-image: url('../img/btn-save.png'); }
+
+section#cont-prin fieldset input#btn-eli-pro, section#cont-prin fieldset input#btn-del-mov{ background-image: url('../img/btn-del.png'); }
+
+section#cont-prin fieldset input#btn-cap-ent-pro{ background-image: url('../img/btn-add.png'); }
+
+section#cont-prin fieldset input#btn-cap-sal-pro{ background-image: url('../img/btn-remove.png'); }
+
+footer{
+	background-color: black;
+	color: whitesmoke;
+	padding: 5px;
+	margin-top: 20px;
+}
+
+@media only screen and (max-width: 1100px) {
+    section#cont-prin, aside#resume, aside#left, aside#right{
+		width: 800px;
+		max-width: 100%;	
+	}
+}
