@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Historial de operaciones</title>
+		<link rel="shortcut icon" href="img/ico.png"/>
+		<script src="../jquery/jquery-3.2.0.min.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="script_index.js"></script>
+		<style type="text/css" media="screen">
+			header { 
+				position: fixed;
+				background:navy; 
+				color:white;
+				width: 100%;
+				margin-top: -80px;
+
+				-webkit-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);
+				-moz-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);
+				box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);
+			}
+
+			* input { font-size: 16px; color: black; }
+
+			header input[type=text]{
+				line-height: 40px; 
+				vertical-align: center;
+				font-weight: bold;
+			}
+
+			/* Removes the clear button from date inputs */
+			header input[type="month"]::-webkit-clear-button {
+			    display: none;
+			}
+
+			/* Removes the spin button */
+			header input[type="month"]::-webkit-inner-spin-button { 
+			    display: none;
+			}
+
+			header input[type="month"]::-webkit-calendar-picker-indicator {
+			    background: white;
+			    color: crimson;
+			}
+
+			table#tabCapCirc, table#tabRecap, table#tabIngMens {
+			  display: none;
+			  border-collapse: collapse;
+			  width: 90%;
+			  max-width: 100%;
+			  margin: auto;
+			  margin-top: 20px;
+			  border-top-color: black;
+			}
+			table#tabRecap, table#tabCapCirc { margin-top: 20px; }
+			table#tabCapCirc caption, table#tabRecap caption, table#tabIngMens caption { 
+				background:black;
+				color:white;
+				padding: 5px;
+				text-align: center;
+			}
+			table#tabCapCirc thead tr th, table#tabRecap thead tr th, table#tabIngMens thead tr th { border: inset 0pt; font-size: 12px; }
+			table#tabCapCirc thead tr, table#tabRecap thead tr, table#tabIngMens thead tr { text-align: left; }
+			table#tabCapCirc tbody#contenedor-movimientos tr:hover, table#tabRecap tbody#contenedor-recap tr:hover, table#tabIngMens tbody#contenedor-ingresos tr:hover  { filter:brightness(0.7); }
+			table#tabCapCirc tbody#contenedor-movimientos tr.cap-tot-dia, table#tabRecap tbody#contenedor-recap tr.cap-tot-dia, table#tabIngMens tbody#contenedor-ingresos tr.cap-tot-dia { background: white; border-bottom: 1px solid black; }
+			table#tabCapCirc tbody#contenedor-movimientos tr td, table#tabRecap tbody#contenedor-recap tr td, table#tabIngMens tbody#contenedor-ingresos tr td { border: inset 0pt; }
+
+			table#tabCapCirc{ margin-bottom: 20px; }
+
+			table#tabIngMens tbody#contenedor-ingresos tr.trHidden { display: none; }
+
+			* input[type=radio] { cursor: pointer; }
+		</style>
+	</head>
+	<body style="background:silver; margin: 0px">
+		<header>
+			<a href="../index.html" title="Click para regresar al Home">
+				<img src="img/logo.png" width="40" height="40" style="margin-left:5px; cursor: pointer">
+			</a>
+			<small style="margin-left: 20px; line-height: 40px; vertical-align:center">Selecciona mes y año: </small><input type="month" id="txt-mes-ano" style="line-height: 40px">
+			<small style="margin-left: 10px; line-height: 40px; vertical-align:center">T. Ingreso: </small><input type="text" id="txt-ing-mens" size="8" readonly="readonly" disabled="disabled">
+			<small style="margin-left: 10px; line-height: 40px; vertical-align:center">T. Recapitalización: </small><input type="text" id="txt-rec-mens" size="8" readonly="readonly" disabled="disabled">
+			<small style="margin-left: 10px; line-height: 40px; vertical-align:center">T. Capital circulante: </small><input type="text" id="txt-cap-cir" size="8" readonly="readonly" disabled="disabled">
+			<!--<b> = Capital invertido </b><input type="text" id="txt-cap-inv" size="6" readonly="readonly" disabled="disabled">-->
+		</header><!-- /header -->
+
+		<div id="contenedor">
+			<div class="btn-group btn-group-justified" style="width:90%; max-width: 100%; margin:0px auto; margin-top:80px">
+				<a href="#" id="btn-ingresos" class="btn btn-primary">Mostrar Ingresos</a>
+				<a href="#" id="btn-recapita" class="btn btn-primary">Mostrar Recapitalizaciones</a>
+				<a href="#" id="btn-egresos" class="btn btn-primary">Mostrar Circulación de capital</a>
+			</div>
+			<table id="tabIngMens" border="1">
+				<caption id="hideTabIngMens">Ingresos mensuales</caption>
+				<thead id="header-ing-mens" style="background:black; color:white">
+					<tr>
+						<th style="width:7%">Num</th>
+						<th style="width:8%">Fecha pagado</th>
+						<th style="width:25%">Cliente</th>
+						<th style="width:10%">Ingreso</th>
+						<th style="width:25%">Operación</th>
+						<th style="width:25%">Observaciones</th>
+					</tr>
+				</thead>
+				<tbody id="contenedor-ingresos">
+				
+				</tbody>
+			</table>
+
+			<table id="tabRecap" border="1">
+				<caption id="hideTabRecap">Recapitalizaciones mensuales</caption>
+				<thead id="header-recap" style="background:black; color:white">
+					<tr>
+						<th style="width:7%">Num</th>
+						<th style="width:8%">Fecha recap.</th>
+						<th style="width:25%">Cliente</th>
+						<th style="width:10%">Recapitalización</th>
+						<th style="width:25%">Operación</th>
+						<th style="width:25%">Observaciones</th>
+					</tr>
+				</thead>
+				<tbody id="contenedor-recap">
+
+				</tbody>
+			</table>
+
+			<input type="hidden" id="txt-temp-obs">
+			<table id="tabCapCirc" border="1">
+				<caption id="hideTabCapCirc">Circulación de capital mensual</caption>
+				<thead id="header-movimientos" style="background:black; color:white">
+					<tr>
+						<th style="width:5%">Num</th>
+						<th style="width:8%">Fecha egreso</th>
+						<th style="width:25%">Cliente</th>
+						<th style="width:10%">Capital</th>
+						<th style="width:5%">Tasa</th>
+						<th style="width:13%">Descripcion de la prenda</th>
+						<th style="width:32%">Observaciones</th>
+					</tr>
+				</thead>
+				<tbody id="contenedor-movimientos">
+
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>

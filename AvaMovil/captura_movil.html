@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Captura Movil</title>
+		<link rel="stylesheet" href="css/style_captura_movil.css">
+		<link rel="shortcut icon" href="img/boton_movil.png" />
+		<script src="jquery/jquery-3.2.0.min.js"></script>
+		<script src="js/script_captura_movil.js"></script>
+	</head>
+	<body>
+		<div id="contenedor">
+			<form id="form-captura-movil">
+				<h3>Captura un dispositivo movil</h3>
+				<hr>
+				<img src="img/boton_movil.png" width="100" height="100">
+				<div>
+					<label>Id. del Móvil<input type="number" id="txt-cod-movil" name="txt-cod-movil" placeholder="Id. Movil" readonly></label>
+					<label>Descripción del Móvil<br><input type="text" id="txt-descripcion" name="txt-descripcion" placeholder="Escribir Descripción" list="data-list-dispositivos">
+						<div id="contenedor-data-list-dispositivos">
+							
+						</div>
+					</label>
+					<label>Año de Lanzamiento<input type="number" id="txt-año-lanzamiento" name="txt-año-lanzamiento" placeholder="Escribir Año de Lanzamiento"></label>
+				</div>
+				<div>
+					<label>Sistema Operativo<input type="text" id="txt-so" name="txt-so" placeholder="Escribir S.O. y Versión"></label>
+					<label>Mem. Int.<input type="text" id="txt-mem-int" name="txt-mem-int" placeholder="Escribir Cantidad de GB/TB"></label>
+					<label>Max. Micro SD<input type="text" id="txt-max-msd" name="txt-max-msd" placeholder="Escribir Capacidad en GB/TB"></label>
+				</div>
+				<div>
+					<label>Memoria RAM<input type="text" id="txt-ram" name="txt-ram" placeholder="Escribir Capacidad en MB/GB"></label>
+					<label>Cámara Frontal<input type="text" id="txt-cam-front" name="txt-cam-front" placeholder="Escribir MegaPixeles"></label>
+					<label>Cámara Posterior<input type="text" id="txt-cam-post" name="txt-cam-post" placeholder="Escribir MegaPixeles"></label>
+				</div>
+				<div>
+					<label>Conector USB<input type="text" id="txt-usb" name="txt-usb" placeholder="Escribir Conector USB"></label>
+					<label>Datos Adicionales<input type="text" id="txt-dat-ad" name="txt-dat-ad" placeholder="Escribir Datos Adicionales"></label>
+				</div>
+				<div>
+					<label>Precio Nuevo<input type="number" id="txt-precio-nuevo" name="txt-precio-nuevo" placeholder="Escribir Precio Nuevo" step="50"></label>
+				</div>
+				<div id="buttons">
+					<input type="reset" id="btn-borrar" value="Borrar">
+					<input type="button" id="btn-guardar" value="Guardar">
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

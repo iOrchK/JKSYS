@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Avalúo de Móviles</title>
+		<link rel="stylesheet" href="css/style_index.css">
+		<link rel="stylesheet" href="alert/dist/sweetalert.css">
+		<link rel="shortcut icon" href="img/boton_movil.png" />
+		<script src="jquery/jquery-3.2.0.min.js"></script>
+		<script src="alert/dist/sweetalert.min.js"></script>
+		<script src="js/script_index.js"></script>
+	</head>
+	<body>
+		<header>
+			<h3>Instrumento para Avalúo de Dispositivos Móviles</h3>
+		</header><!-- /header -->
+
+		<div id="contenedor">
+			<form id="form-avaluo-moviles">
+				<fieldset>
+					<legend><img src="img/ico_movil.png" width="100" height="100"></legend>
+					<div id="logo">
+						<img src="img/LogoV3B-N.png">
+					</div>
+					<font color="blue">
+						<label>* Nuevo boton Consulta Avalúo.</label><br>
+						<label>* Nuevo boton Consulta Libre, útil para excepciones.</label>
+					</font>
+					<div id="contenedor-movil">
+						<label>Seleccione Dispositivo Movil:</label>
+						<input type="text" id="txt-dispositivo" placeholder="Lista de Dispositivos Moviles" list="data-list-dispositivos">
+						<div id="contenedor-data-list-dispositivos">
+							
+						</div>
+					</div>
+					<div id="contenedor-accesorios">
+						<label>Seleccione Si Hay Accesorios:</label>
+						<input type="text" id="txt-accesorios" placeholder="Lista de Opciones de Accesorios" list="data-list-accesorios">
+						<div id="contenedor-data-list-accesorios">
+							
+						</div>
+					</div>
+					<div id="contenedor-estado-fisico">
+						<label>Seleccione Estado Físico:</label>
+						<input type="text" id="txt-estado-fisico" placeholder="Lista de Estados Físicos" list="data-list-estados">
+						<div id="contenedor-data-list-estados">
+							
+						</div>
+					</div>
+
+					<input type="button" id="btn-avaluar" value="Consulta Avalúo">
+					<input type="button" id="btn-consulta-libre" value="Consulta Libre">
+					<input type="reset" id="btn-reset" value="Borrar"><br>
+				</fieldset>	
+			</form>
+		</div>
+
+		<div id="contenedor-background">
+				<div id="contenedor-avaluo">
+					<h3>Resultados del Avalúo</h3>
+					<hr>
+					<div id="contenedor-avaluo-imagen">
+						<img id="img-movil" src="img/bg1.png">						
+					</div>
+					<div id="contenedor-respuesta">
+						
+					</div>
+					<div id="contenedor-avaluo-buttons">
+						<hr>
+						<input type="button" id="btn-aceptar" value="Aceptar">
+					</div>
+				</div>
+			</div>
+	</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Clientes</title>
+		<link rel="shortcut icon" href="img/ico.png">
+		<style type="text/css" media="screen">
+			@font-face {
+				font-family: 'myriad_pro_light';
+				src: url('../fonts/myriad-pro/MyriadPro-Light.woff') format('woff');
+				font-style: normal;
+				font-weight: bold;
+			}
+
+			@font-face {
+				font-family: 'MyriadPro-Regular';
+				font-style: normal;
+				font-weight: normal;
+				src: url('../fonts/myriad-pro-regular/MyriadPro-Regular.woff') format('woff');
+			}
+
+			body { margin:0px; background: silver; font-family: 'myriad_pro_light'; }
+
+			header { 
+				position: fixed;
+				padding-top: -67px;
+				background:navy; 
+				color:white;
+				width: 100%;
+				height: 50px;
+				font-family: 'MyriadPro-Regular';
+
+				-webkit-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);
+				-moz-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);
+				box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);
+			}
+
+			* b, * input, * textarea { font-family: 'MyriadPro-Regular'; font-size: 14px; }
+
+			header input,header b{ padding: 0px; line-height: 46px; vertical-align: top; }
+
+			* input[type=search]{ height: 50px !important; }
+
+			header b { margin-left: 20px; line-height: 50px; }
+
+			* input[type="date"]::-webkit-clear-button {
+			    display: none;
+			}
+
+			/* Removes the spin button */
+			* input[type="date"]::-webkit-inner-spin-button { 
+			    display: none;
+			}
+
+			* input[type="date"]::-webkit-calendar-picker-indicator {
+			    background: none;
+			    color: crimson;
+			}
+
+			* input[type=button][disabled=disabled] { -webkit-filter: grayscale(50%); }
+
+			* input[type=button][disabled=disabled]:hover { border-color: red }
+
+			* input[type=button][disabled=disabled]:active { filter:brightness(100%) !important; }
+
+			* input[type=button] {
+				text-decoration: none;
+			    padding: 5px;
+			    /*font-weight: 600;
+			    font-size: 20px;*/
+			    color: #ffffff;
+			    background-color: crimson;
+			    border-radius: 6px;
+			    border: 1.5px solid red;
+			}
+
+			* input[type=button]:hover { border-color: darkred; }
+
+			* input[type=button]:active { filter:brightness(0.7); }
+
+			* input[type=button]:focus{ outline: 0px; }
+
+			aside table#tableClientes {	margin-top: 68px; }
+
+			* fieldset { background:whitesmoke; margin-top:66px; }
+
+			* input[type="radio"] { margin-left: 0px; margin-right: 1px; }
+
+			table#tableClientes {
+			  display: table;
+			  border-collapse: collapse;
+			  border: 1px solid;
+			  width: 99%;
+			  margin: auto;
+			  margin-top: 0px;
+			  font-family: 'myriad_pro_light';
+			}
+			table#tableClientes caption { 
+				background: black; 
+				border: 1px solid black; 
+				color: white;
+				 
+				width-right: -2px; 
+				margin-bottom: -2px; 
+			}
+			table#tableClientes thead, table#tableClientes tbody {
+			  width: 100%;
+			}
+			table#tableClientes thead {
+			  background:black;
+			  color:white;
+			  overflow-y: scroll;
+			  display: table;
+			  table-layout: fixed;
+			  font-size: 12px;
+			  width: 100%; /* assuming scrollbar width as 17px */
+			  font-family: 'MyriadPro-Regular';
+			}
+			table#tableClientes tbody {
+			  overflow: auto;
+			  height: 550px;
+			  display: block;
+			  background: white;
+			}
+			table#tableClientes tr {
+			  width: 100%;
+			  text-align: left;
+			  display: table;
+			  table-layout: fixed;
+			}
+			table#tableClientes tbody tr:hover{
+				filter:brightness(0.7);
+			}
+
+			* img { 
+				background: purple;
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<a href="../index.html" title="Click para regresar al Home">
+				<img src="img/logo.png" width="50" height="50" style="background:none;margin-left:5px; cursor: pointer">
+			</a>
+			<b>Buscar cliente: </b>
+			<input type="search" id="txt-buscar" name="txt-buscar" placeholder="Escribe aquí y presiona enter" size="50" title="Tip 1: Escribe aquí el nombre, apellido o número de cliente. Luego presiona Enter. &#10;Tip 2: Presiona la X en el campo de búsqueda. Luego presiona Enter para buscar todos los clientes.">
+			<b>Contador de clientes: </b>
+			<input type="text" id="txt-can-cli" disabled="disabled" size="8">
+			<!-- <b>Mostrar: </b>
+			<input type="text" id="txt-mostrar" placeholder="Lista" value="Todos" list="listMostrar">
+			<datalist>
+				<option id="1" value="Todos"></option>
+				<option id="2" value="Altas"></option>
+				<option id="3" value="Bajas"></option>
+			</datalist> -->
+		</header><!-- /header -->
+
+		<aside style="float:left; width: 45%;">
+			<table id="tableClientes">
+				<caption><b>Resultados de la busqueda</b></caption>
+				<thead>
+					<tr>
+						<th style="width:10%">Num. cte.</th>
+						<th style="width:40%">Titular</th>
+						<th style="width:40%">Cotitular</th>
+						<th style="width:10%">Antiguedad</th>
+					</tr>
+				</thead>
+				<tbody id="contenedor-clientes">
+					<tr>
+						<td colspan="4"><center><img src="img/load.gif" width="20" height="20" style="background:none"><b> Cargando clientes</b></center></td>
+					</tr>
+				</tbody>
+			</table>
+		</aside>
+
+		<aside style="float:right; width: 55%;">
+			<fieldset>
+				<legend>
+					<input type="button" id="btn-nuevo" value="Nuevo">
+					<input type="button" id="btn-agregar" value="Agregar">
+					<input type="button" id="btn-modificar" value="Actualizar" disabled="disabled">
+					<input type="button" id="btn-eliminar" value="Eliminar" disabled="disabled">
+					<input type="button" id="btn-reactivar" value="Reactivar" disabled="disabled">
+				</legend>
+				<form id="formCliente" accept-charset="utf-8">
+					<b>Datos del cliente</b><hr>
+					<p>
+						<center>
+							<img src="img/Nuevo.png" id="imgClass" alt="" width="100" height="100"><br>
+							<b id="txtClass">Cliente clasificado: Nuevo</b>							
+						</center>
+					</p>
+					<p>
+						<input type="hidden" id="txt-fol-cte" name="txt-fol-cte" readonly="readonly">
+						Num. Cte: <input type="text" id="txt-num-cte" name="txt-num-cte" placeholder="Sin número de cliente" list="listNumCte">
+						<datalist id="listNumCte">
+							
+						</datalist>
+						Fecha de registro: <input type="date" id="txt-fec-reg" name="txt-fec-reg">
+					</p>
+					<p>
+						Nombre del titular: <input type="text" id="txt-nom-tit" name="txt-nom-tit" size="75" placeholder="Obligatorio escribir el nombre" list="listNomTit">
+						<datalist id="listNomTit">
+							
+						</datalist>
+					</p>
+					<p>
+						Identificación: <input type="text" id="txt-ide-tit" name="txt-ide-tit" size="30" value="IFE" placeholder="Obligatorio seleccionar una identificación" list="listIdentificaciones">
+						<datalist id="listIdentificaciones">
+							
+						</datalist>
+						Clave de identificación: <input type="text" id="txt-cla-ide" name="txt-cla-ide" placeholder="No presentado" size="30">
+					</p>
+					<p>
+						Nombre del cotitular: <input type="text" id="txt-nom-cot" name="txt-nom-cot" placeholder="No proporcionado" size="75">
+					</p>
+					<p>
+						Teléfono(s): <input type="text" id="txt-tels" name="txt-tels" placeholder="No proporcionado" size="30">
+						Domicilio(s): <input type="text" id="txt-doms" name="txt-doms" placeholder="No proporcionado" size="50">
+					</p>
+					<p>
+						Correo(s): <input type="email" id="txt-emails" name="txt-emails" placeholder="No proporcionado" size="45">
+						Clasificación: <input type="text" id="txt-cla-cli" name="txt-cla-cli" name="" placeholder="Obligatorio seleccionar una clasificación" list="listClasificaciones" value="Nuevo">
+						<datalist id="listClasificaciones">
+							
+						</datalist>
+					</p>
+					<p style="display:inline; vertical-align:top">
+						Datos adicionales: <textarea id="txt-ano-adi" name="txt-ano-adi" style="width:50%" placeholder="No hay datos adicionales"></textarea>
+					</p>
+				</form>
+			</fieldset>
+		</aside>
+
+		<script src="../jquery/jquery-3.2.0.min.js"></script>
+		<script src="script_index.js"></script>
+	</body>
+</html>

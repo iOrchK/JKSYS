@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Instrumento para valuación de Dispositivos Moviles</title>
+		<link rel="shortcut icon" href="../IMG/ic_movil.png">
+		<style type="text/css" media="screen">
+			body { 
+				margin: 0px;
+				padding: 0px; 
+				background: silver;
+				text-align: center;
+			}
+			header { 
+				background: navy;
+				color: white;
+				width: 100%;
+				height: 40px;
+				position: fixed;
+				margin-top: -55px;
+
+				-webkit-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);
+				-moz-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);
+				box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);
+			}
+			header img#return-home { float:left; margin-left:5px; cursor: pointer; }
+			header input[type=search]{ 
+				width: 300px; 
+				max-width: 50%; 
+				height: 40px; 
+				vertical-align: top;
+			}
+
+			* input.btn-search{ 
+				background: none !important; 
+				background: url("../IMG/ic_search.png") no-repeat !important;
+				background-size: 50% !important;
+				width: 40px !important;
+				line-height: 40px !important;
+				background-position: center !important;
+				color: white !important; 
+				border: none !important; 
+				cursor: pointer;
+			}
+			* input[type=button] { cursor: pointer; }
+			* input[type=button]:active { filter:brightness(0.7); }
+			* input[type=button]:focus{ outline: 0px; }
+
+			div#cont-pag { margin-top: 55px; }
+			
+
+			/* The switch - the box around the slider */
+			.switch {
+			  position: relative;
+			  display: inline-block;
+			  width: 50px;
+			  height: 25px;
+			  margin-top: 5px;
+			  margin-right: 5px;
+			}
+
+			/* Hide default HTML checkbox */
+			.switch input {display:none;}
+
+			/* The slider */
+			.slider {
+			  position: absolute;
+			  cursor: pointer;
+			  top: 0;
+			  left: 0;
+			  right: 0;
+			  bottom: 0;
+			  background-color: #ccc;
+			  -webkit-transition: .4s;
+			  transition: .4s;
+			}
+
+			.slider:before {
+			  position: absolute;
+			  content: "";
+			  height: 17px;
+			  width: 17px;
+			  left: 4px;
+			  bottom: 4px;
+			  background-color: white;
+			  -webkit-transition: .4s;
+			  transition: .4s;
+			}
+
+			input:checked + .slider {
+			  background-color: #2196F3;
+			}
+
+			input:focus + .slider {
+			  box-shadow: 0 0 1px #2196F3;
+			}
+
+			input:checked + .slider:before {
+			  -webkit-transform: translateX(24px);
+			  -ms-transform: translateX(24px);
+			  transform: translateX(24px);
+			}
+
+			/* Rounded sliders */
+			.slider.round {
+			  border-radius: 34px;
+			}
+
+			.slider.round:before {
+			  border-radius: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<img id="return-home" src="../IMG/logo.png" width="40" height="40" title="Click para regresar.">
+			<input type="search" id="txt-search" name="txt-search" placeholder="Buscar por marca o modelo">
+			<input type="button" id="btn-search" class="btn-search" alt="Buscar">
+			<!-- Rounded switch -->
+			<b id="valuador" style='float: right; display: none'>
+				Modo valuador
+				<label class="switch">
+				 	<input id="modo-valuador" type="checkbox">
+				 	<span class="slider round"></span>
+				</label>
+			</b>
+		</header><!-- /header -->
+
+		<div id="cont-pag">
+
+		</div>
+
+		<script src="../jquery/jquery-3.2.0.min.js"></script>
+		<script src="script_index.js" async="async"></script>
+	</body>
+</html>

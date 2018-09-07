@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Avalúo de Alhajas</title>
+		<link rel="stylesheet" href="css/style_alhajas.css">
+		<link rel="stylesheet" type="text/css" href="alert/dist/sweetalert.css">
+		<link rel="shortcut icon" href="img/boton_alhaja.png" />
+		<script src="jquery/jquery-3.2.0.min.js"></script>
+		<script src="alert/dist/sweetalert.min.js"></script>
+		<script src="js/script_alhajas.js"></script>
+	</head>
+	<body>
+
+		<header>
+			Instrumento para Avalúo de Alhajas
+		</header><!-- /header -->
+
+		<!-- Ventana Modal -->
+		<div id="contenedor-opacidad">
+			<div id="contenedor-avaluo">
+				<h3>Resultados del Avalúo</h3>
+				<hr>
+				<div id="contenedor-respuesta">
+					
+				</div>
+				<div id="contenedor-avaluo-buttons">
+					<hr>
+					<input type="button" id="btn-aceptar" value="Aceptar">
+				</div>
+			</div>
+		</div>
+
+		<div id="contenedor">
+			<form id="form-avaluo-joyeria">
+				<fieldset>
+					<legend><img src="img/ico_alhaja.png" width="100" height="100"></legend>
+					<div id="logo">
+						<img src="img/LogoV3B-N.png">
+					</div>
+					<font color="blue">
+						<label>* Ahora realiza Avalúo por Lotes o Individual.</label>	
+					</font>
+					<div>
+						<label>Seleccione Metal:</label>
+						<input type="text" id="txt-metal" name="txt-metal" placeholder="Lista de Metales" list="dat-list-metal">
+						<div id="contenedor-data-list-metal">
+								
+						</div>
+					</div>
+					<div>
+						<div id="tooltip-1"></div>
+						<label><img src="img/help.png" id="img-nue" width="15" height="15"> Total Gramos de Prenda(s) Nueva(s):</label>
+						<input type="number" id="txt-grs-pza-nue" name="txt-grs-pza-nue" placeholder="Ingresar gramos aquí" gramos" min="0">
+					</div>
+					<div>
+						<div id="tooltip-2"></div>
+						<label><img src="img/help.png" id="img-semi" width="15" height="15"> Total Gramos de Prenda(s) Seminueva(s):</label>
+						<input type="number" id="txt-grs-pza-semi" name="txt-grs-pza-semi" placeholder="Ingresar gramos aquí" min="0">
+					</div>
+					<div>
+						<div id="tooltip-3"></div>
+						<label><img src="img/help.png" id="img-retac" width="15" height="15"> Total Gramos de Retacería:</label>
+						<input type="number" id="txt-grs-retac" name="txt-grs-retac" placeholder="Ingresar gramos aquí" min="0">
+					</div>
+					<input type="button" id="btn-ava-joy" name="btn-ava-joy" value="Avaluar">
+					<input type="reset" id="btn-reset" value="Borrar">				
+				</fieldset>
+			</form>
+		</div>		
+	</body>
+</html>

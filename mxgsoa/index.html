@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Estados de cuenta</title>
+		<link rel="shortcut icon" href="img/ico.png"/>
+		<style type="text/css" media="screen">
+			@font-face {
+				font-family: 'myriad_pro_light';
+				src: url('../fonts/myriad-pro/MyriadPro-Light.woff') format('woff');
+				font-style: normal;
+				font-weight: bold;
+			}
+
+			@font-face {
+				font-family: 'MyriadPro-Regular';
+				font-style: normal;
+				font-weight: normal;
+				src: url('../fonts/myriad-pro-regular/MyriadPro-Regular.woff') format('woff');
+			}
+
+			header { 
+				position: fixed; 
+				background: navy; 
+				color:white;
+				width: 100%;
+				margin-top: -80px;
+				font-family: MyriadPro-Regular;
+
+				-webkit-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);
+				-moz-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);
+				box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);
+			}
+
+			* input#txt-buscar { 
+				font-family: MyriadPro-Regular; 
+				font-size: 16px;
+				height: 55px;
+				vertical-align: top;
+			}
+
+			* input.btn-search{ 
+				background: none !important; 
+				background: url("../IMG/ic_search.png") no-repeat !important;
+				background-size: 50% !important;
+				width: 40px !important;
+				line-height: 40px !important;
+				background-position: center !important;
+				color: white !important; 
+				border: none !important; 
+				cursor: pointer;
+			}
+
+			* input[type=button]:active { filter:brightness(0.7); }
+
+			* input[type=button]:focus{ outline: 0px; }
+
+			* b { font-family: 'MyriadPro-Regular'; }
+
+			header input[type=text]{
+				line-height: 50px; 
+				vertical-align: top;
+			}
+
+			h3#h3Title { 
+				background: black; color: white; text-align: center; width: 850px; max-width: 100%; border: 1px solid black; margin: 80px auto; margin-bottom: 0px;
+				font-family: 'MyriadPro-Regular';
+			}
+
+			div#contenedor {
+				background: white; width: 850px; max-width: 100%; border: 1px solid black; margin: 20px auto; margin-top: 0px; font-family: 'myriad_pro_light';
+			}
+
+			div#cont-canvas { display: none; }
+		</style>
+	</head>
+	<body style="background: silver; margin:0px">
+		<header style="background:navy">
+			<a href="../index.html" title="Click para regresar al Home">
+				<img src="img/logo.png" width="50" height="50" style="margin-left:5px; cursor: pointer">
+			</a>
+			<strong style="margin-left: 20px; line-height: 50px; vertical-align: top">Buscar y seleccionar cliente: </strong>
+			<input type="search" id="txt-buscar" placeholder="Nombres, apellidos o numero de cliente" size="45" list="listaClientes" title="">
+			<datalist id="listaClientes">
+					
+			</datalist>
+			<input class="btn-search" id="btn-search" type="button" title="Presiona aquí para iniciar la búsqueda de clientes.">
+		</header><!-- /header -->
+
+		<div id="downloadable">
+			<h3 id="h3Title">Estado de cuenta</h3>
+			<div id="contenedor">
+				<p><center><b>🤔 Realice una búsqueda de cliente</b></center></p>
+			</div>
+		</div>
+
+		<div id="cont-canvas">
+			
+		</div>
+
+		<script src="../jquery/jquery-3.2.0.min.js"></script>
+		<script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script>
+		<script src="script_index.js"></script>
+	</body>
+</html>

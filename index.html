@@ -1,0 +1,326 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="shortcut icon" href="IMG/logo.png"/>
+	<title>Home</title>
+	<link rel="stylesheet" href="bootstrap4.1.1/css/bootstrap.min.css">
+	<style type="text/css" media="screen">
+		body{
+			background: silver;
+			margin: 0px;
+		}
+
+		header, footer { 
+			background: black;
+			color: white;
+			padding: 5px;
+		}
+
+		header div.text{
+			display: inline-block;
+			vertical-align: top;
+			padding: 10px;
+		}
+
+		* input.btn_menu {
+			background: none;
+			border-radius: 10px;
+			color: white;
+			padding: 5px;
+			cursor: pointer;
+		}
+
+		* input.btn_menu:hover { color: cyan; border-color: cyan; }
+
+		* input.btn_menu:active { color: white; }
+
+		* input.btn_menu:focus{ outline: 0px; }
+
+		div#modal-slide {
+			display: none;
+			height: 500px;
+		}
+
+		div#modal-des {
+			overflow-y: auto;
+			overflow-x: none;
+			height: 430px;
+		}
+
+		* input#close-modal { 
+			float: right; 
+			border: none; 
+			background: none; 
+			color: blue; 
+			font-weight: bold;
+			cursor: pointer;
+		}
+
+		* input#close-modal:hover { color: cyan; }
+
+		* input#close-modal:active { color: blue; }
+
+		* input#close-modal:focus{ outline: 0px; }
+
+		* strong { display: block; }
+
+		main#contenedor, div#modal-slide {
+			background: white;
+			width: 800px;
+			max-width: 100%;
+			margin-top: 20px;
+			margin-left: auto;
+			margin-right: auto;
+			padding: 10px;
+			border-radius: .25rem;
+		}
+
+		main#contenedor strong { 
+			margin-top: 20px;
+			color: #6c757d!important;
+		}
+
+		* div.app, div.logo{
+			display: inline-block;
+			vertical-align: top;
+			width: 150px;
+			max-width: 100%;
+			height: 150px;
+			padding-top: 10px;
+			text-align: center;
+		}
+
+		div.logo {
+			width: 75px;
+			height: 75px;
+		}
+
+		main#contenedor div.app input {
+			width: 100%;
+		}
+
+		* a { cursor: pointer; }
+
+		footer { 
+			background: black;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<header id="header">
+		<div class="logo">
+			<img src="img/logo.png" width="75" height="75" style="margin-left:5px;">
+		</div>
+		<div class="text">
+			<strong>Bienvenido!</strong>
+			<input type="button" class="btn_menu" id="item-1" value="Descripción de aplicaciones">
+			<input type="button" class="btn_menu" id="item-2" value="Manuales">
+			<input type="button" class="btn_menu" id="item-3" value="Acerca de JK Infinity">
+		</div>	
+	</header><!-- /header -->
+
+	<div id="modal-slide">
+		<input id="close-modal" type="button" value="Cerrar">
+		<h6 id="modal-tit">Actualización 1/May/18</h6>
+		<hr/>
+		<div id="modal-des">
+			<center>
+				<img src="IMG/btn-update.png" width="150" height="150">
+				<font color='blue'>
+					<p>Al iniciar la aplicación aquí se describirán las actializaciones.</p>
+					<ol style="text-align: left">
+						<strong>ALHAJAS<span class="badge badge-primary">Nuevo</span></strong>
+						<p>Genera un monto de avalúo seleccionando la descripción de la alhaja que más se parezca, el metal y kilataje, y los gramos. Haz clic en el botón calcular.<p>
+						<strong>TODAS LAS APLICACIONES</strong>
+						<li>Se cambió el diseño de los botones buscar.</li>
+						<li>Cambió la dinámica de búsqueda y selección (operaciones), ingresa el cliente y luego presiona la lupa.</li>
+						<li>Se agregaron Tips busqueda y selección.</li>
+						<li>Ahora ya puedes buscar clientes por apellidos o letras iniciales.</li>
+						<li>Mejoras de diseño y rendimiento.</li>
+						<li>Corrección de varios errores.</li>
+					</ol>
+					<p id="counter"></p>
+				</font>
+			</center>
+		</div>
+	</div>
+
+	<main id="contenedor" role="main">
+		<div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow" style="background: #6f42c1; margin-top: 0px !important;">
+	        <div class="lh-100">
+	        	<h6 class="mb-0 text-white lh-100">Procesos</h6>
+	        	<small>Aplicaciones</small>
+	        </div>
+	    </div>
+
+		<strong>Operaciones</strong>
+		<div class="app">
+			<a href="">
+				<img src="IMG/btn-settings.png" width="100" height="100">
+				Agenda de diario
+			</a>
+			<font color="orange"> * en planeación</font>
+		</div>
+		<div class="app">
+			<a href="">
+				<img src="IMG/btn-settings.png" width="100" height="100">
+				Control de caja
+			</a>
+			<font color="orange"> * en planeación</font>
+		</div>
+		<hr/>	
+
+		<strong>Atención al cliente</strong>
+		<div class="app">
+			<a href="mxgclient/index.html">
+				<img src="IMG/ic_client.png" width="100" height="100">
+				Clientes
+			</a>
+		</div>
+		<div class="app">
+			<a href="mxgoc/index.html">
+				<img src="IMG/ic_operations.png" width="100" height="100">
+				Cuentas de clientes
+			</a>
+		</div>
+		<div class="app">
+			<a href="mxgsoa/index.html">
+				<img src="IMG/ic_bussiness.png" width="100" height="100">
+				Negociaciones
+			</a>
+		</div>
+		<hr/>
+		
+		<strong>Avalúo</strong>
+		<div class="app">
+			<a href="mxgavalhajas/index.html">
+				<img src="IMG/ic_alhaja.png" width="100" height="100">
+				Alhajas
+			</a>
+		</div>
+		<div class="app">
+			<a href="mxgavatecno/index.html">
+				<img src="IMG/ic_movil.png" width="100" height="100">
+				Tecnología y electrónica
+			</a>
+		</div>
+		<hr/>
+
+		<strong>Inventario</strong>
+		<div class="app">
+			<a href="mxgstock/index.html">
+				<img src="IMG/ic_stock.png" width="100" height="100">
+				Garantías
+			</a>
+		</div>
+		<div class="app">
+			<a href="">
+				<img src="IMG/btn-settings.png" width="100" height="100">
+				Revisión periódica
+			</a>
+			<font color="orange">* en planeación</font>
+		</div>
+		<div class="app">
+			<a href="">
+				<img src="IMG/ic_remates.png" width="100" height="100">
+				Remates
+			</a>
+			<font color="orange">* en desarrollo</font>
+		</div>
+		<hr/>
+		
+		<strong>Finanzas</strong>
+		<div class="app">
+			<a href="mxgcalendar/index.html">
+				<img src="IMG/ic_calendar.png" width="100" height="100">
+				Calendario
+			</a>
+		</div>
+		<div class="app">
+			<a href="mxgmoves/index.html">
+				<img src="IMG/ic_history.png" width="100" height="100">
+				Movimientos mensuales
+			</a>
+		</div>
+	</main>
+
+	<footer>
+		<strong>Soporte técnico:</strong>
+		<small>iOrch</small> | 
+		<small>yahicimosclick9193@hotmail.com</small> | 
+		<small>999 331 0711</small>
+	</footer>
+
+	<script src="jquery/jquery-3.2.0.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="bootstrap4.1.1/js/bootstrap.min.js"></script>
+	<script>
+		// Mostrar actualizaciones en modal por 15 segundos
+		var hide; // declaración de intervalo global
+		(function(){
+			$("#modal-slide").slideDown();
+		    var counter=15;
+		    hide=setInterval(function(){ 
+		    	$("#counter").html("Cerrado automático en "+counter);
+		    	counter=counter-1;
+		    	if(counter===-1){
+		    		$("#counter").html("Cerrando ...");
+		    		clearInterval(hide);
+		    		$("#modal-slide").slideUp();
+		    	}
+		    }, 1000);
+		})();
+
+		// Click en Botones clase Menu
+		(function(){
+			$(".btn_menu").click(function(e) {
+				clearInterval(hide);
+				e.preventDefault();
+				$(".btn_menu").removeAttr('style');
+				$(this).css("color", "cyan");
+				$(this).css("border-color", "cyan");
+				var tit=$(this).val();
+				var idi=$(this).attr("id");
+				var des="";
+				console.log("Evento Click: "+tit);
+				$("#modal-tit").text(tit);
+				if(idi==="item-1"){
+					des="<center><img src='IMG/apps.png' width='200' height='200'></center><p>Cuando estés en una aplicación, puedes regresar aquí presionando el logo <img src='img/logo.png' width='30' height='30'> en la esquina superior izquierda.</p> <strong>TAREAS</strong><p><strong>Agenda de diario. </strong>Registra y revisa los ingresos y egresos de diario, programa negociaciones, pagos de clientes, pagos a acreedores, tareas o pendientes, lleva el control de quien programó, realizó y revisó los registros.</p> <strong>ATENCIÓN AL CLIENTE</strong><p><strong>Clientes. </strong>Registra y actualiza clientes. Categorizalos según su comportamiento. Lleva el control de su antiguedad.</p><p><strong>Operaciones. </strong>Registra, actualiza y valida contratos de empeño, préstamos sin garantía, ventas de productos por apartado, abonos, meses sin intereses. Maneja facilmente los cargos por intereses, abonos a capital o abonos a ventas. Lleva el control de quién registró y validó.</p><p><strong>Calendario. </strong>Visualiza la lista de ingresos del día entre los 12 meses del año. En número de día se presentarán los movimientos de cada cliente y sus datos de contacto. Los préstamos sin interés (con tasa 0%) se programa pero no se suma el monto a los totales.</p> <p><strong>Negociaciones. </strong>Visualiza los intereses y abonos vencidos de un cliente, agregale un recargo y obtén el total que el cliente debe pagar.</p> <strong>AVALÚO</strong><p><strong>Alhajas. </strong>Genera un monto de avalúo seleccionando la descripción de la alhaja que más se parezca, el metal y kilataje, y los gramos. Haz clic en el botón calcular.</p><p><strong>Dispositivos móviles. </strong>Obtén un avalúo de un celular o una tablet ingresando la marca o modelo. Activa el modo valuador para ocultar información al cliente. desactiva el modo valuador para obtener datos técnicos.</p> <strong>INVENTARIO</strong><p><strong>Revisión periódica. </strong>Control para revisar garantías con naturaleza electrónica o en general. Contiene el periodo de revisión, la fecha en que se realizó, el responsable y las observaciones detectadas.</p><p><strong>Garantías existentes. </strong></p>Visualiza la lista de todas las garantías existentes en el almacén.<p><strong>Garantías en remate. </strong>Visualiza la lista de remates. Lleva el control del responsable de habilitar los remates, el precio de venta, la fecha de cancelación, el vendedor.</p> <strong>FINANZAS</strong><p><strong>Movimientos mensuales. </strong>Visualiza los ingresos y egresos del mes. Agrega observaciones a los intereses, abonos a capital, préstamos y empeños.</p>";
+				}
+				if(idi==="item-2"){
+					des='<input type="radio" name="manuales" value="oc.pdf" checked>Operaciones <embed src="manuales/oc.pdf" width="780" height="400" href="manuales/oc.pdf"></embed>';
+				}
+				if(idi==="item-3"){
+					des="<center><p><img src='IMG/dev.png' width='200' height='200'></p><strong>Versión Home.</strong><p>Sistema Integral para Financieras.</p><p><font color='blue'>JK Infinity facilita los procesos de pequeñas empresas dedicadas al financiamiento o empeño.</font></p><p>Id. de versión: 0be2b2002fe261ec27c4209f96313668194def75<br>Author: iOrch <yahicimosclick9193@hotmail.com><br>Date:   Fri Apr 27 20:07:19 2018</p></center>";
+				}
+				$("#modal-des").html(des);
+				$("#modal-slide").slideDown();
+			});
+		})();
+
+		// Click en botón cerrar modal
+		(function(){
+			$("#close-modal").click(function(e){
+				e.preventDefault();
+				clearInterval(hide);
+				$("#modal-slide").slideUp();
+				$(".btn_menu").removeAttr('style');
+			});
+		})();
+
+		/** Bootstrap **/
+		$(function () {
+		  var nua = navigator.userAgent
+		  var isAndroid = (nua.indexOf('Mozilla/5.0') > -1 && nua.indexOf('Android ') > -1 && nua.indexOf('AppleWebKit') > -1 && nua.indexOf('Chrome') === -1);
+		  if (isAndroid) {
+		    $('select.form-control').removeClass('form-control').css('width', '100%');
+		  }
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Calendario</title>
+		<link rel="shortcut icon" href="img/ico.png"/>
+		<link rel="stylesheet" href="../bootstrap4.1.1/css/bootstrap.min.css">
+		<style type="text/css" media="screen">
+			@font-face {
+				font-family: 'myriad_pro_light';
+				src: url('../fonts/myriad-pro/MyriadPro-Light.woff') format('woff');
+				font-style: normal;
+				font-weight: bold;
+			}
+
+			@font-face {
+				font-family: 'MyriadPro-Regular';
+				font-style: normal;
+				font-weight: normal;
+				src: url('../fonts/myriad-pro-regular/MyriadPro-Regular.woff') format('woff');
+			}
+
+			header { 
+				position: fixed;
+				background:navy; 
+				color:white; 
+				width: 100%;
+				height: 50px;
+				margin-top: -80px;
+				font-family: 'MyriadPro-Regular';
+
+				-webkit-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);
+				-moz-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);
+				box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);
+			}
+
+			header input[name=dia] { 
+				line-height: 50px;
+				vertical-align: middle;
+				cursor: pointer;
+			}
+
+		    header input[type='radio']:checked:after {
+		        width: 15px;
+		        height: 15px;
+		        border-radius: 15px;
+		        top: -17px;
+		        left: -1px;
+		        position: relative;
+		        background-color: crimson;
+		        content: '';
+		        display: inline-block;
+		        visibility: visible;
+		        border: 2px solid white;
+		    }
+
+			header .diaNum { 
+				line-height: 50px; 
+				vertical-align: top;
+				margin-left: 3px;
+				margin-right: 5px;
+			}
+
+			* img#return-home {
+				margin-left:5px;
+				cursor: pointer;
+			}
+
+			* h3, * h4, * b { font-family: 'MyriadPro-Regular'; }
+
+			h3.h3Title{
+				background: black;
+				color: white;
+				width: 90%;
+				margin: 80px auto;
+				margin-bottom: 0px;
+				text-align: center;
+				border: 1px solid black;
+			}
+
+			h3#h3Title { margin-top: 20px; }
+
+			div.contenedor { 
+				background: white;
+				width: 90%;
+				margin: 10px auto;
+				margin-top: 0px;
+				padding-bottom: 10px;
+				padding-top: 10px;
+				border: 1px solid black;
+				font-family: 'myriad_pro_light';
+				overflow-x: auto;
+				overflow-y: none;
+			}
+
+			div#contenedor-configs { 
+				background: white;
+				width: calc(90% - 20px);
+				padding: 10px;
+				margin: 10px auto;
+				margin-top: 80px !important;
+				background: #6f42c1;
+				line-height: 40px;
+				color: white;
+			}
+
+			div#contenedor-calendario{ padding: 0px;}
+
+			div#contenedor-calendario table tbody tr:hover { filter:brightness(0.9); }		
+		</style>
+	</head>
+	<body style="background:silver; margin: 0px">
+		<header>
+			<a href="../index.html" title="Click para regresar al Home">
+				<img src="img/logo.png" width="50" height="50" style="margin-left:5px; cursor: pointer">
+			</a>
+			<strong style="margin-left: 20px; line-height: 50px; vertical-align: top"><label style="margin-right:5px">Día</label> 
+				<input type="radio" name="dia" value="01"><font id="dia01" class="diaNum" color="crimson">1</font>
+				<input type="radio" name="dia" value="02"><font id="dia02" class="diaNum">2</font>
+				<input type="radio" name="dia" value="03"><font id="dia03" class="diaNum">3</font>
+				<input type="radio" name="dia" value="04"><font id="dia04" class="diaNum">4</font>
+				<input type="radio" name="dia" value="05"><font id="dia05" class="diaNum">5</font>
+				<input type="radio" name="dia" value="06"><font id="dia06" class="diaNum">6</font>
+				<input type="radio" name="dia" value="07"><font id="dia07" class="diaNum">7</font>
+				<input type="radio" name="dia" value="08"><font id="dia08" class="diaNum">8</font>
+				<input type="radio" name="dia" value="09"><font id="dia09" class="diaNum">9</font>
+				<input type="radio" name="dia" value="10"><font id="dia10" class="diaNum">10</font>
+
+				<input type="radio" name="dia" value="11"><font id="dia11" class="diaNum">11</font>
+				<input type="radio" name="dia" value="12"><font id="dia12" class="diaNum">12</font>
+				<input type="radio" name="dia" value="13"><font id="dia13" class="diaNum">13</font>
+				<input type="radio" name="dia" value="14"><font id="dia14" class="diaNum">14</font>
+				<input type="radio" name="dia" value="15"><font id="dia15" class="diaNum">15</font>
+				<input type="radio" name="dia" value="16"><font id="dia16" class="diaNum">16</font>
+				<input type="radio" name="dia" value="17"><font id="dia17" class="diaNum">17</font>
+				<input type="radio" name="dia" value="18"><font id="dia18" class="diaNum">18</font>
+				<input type="radio" name="dia" value="19"><font id="dia19" class="diaNum">19</font>
+				<input type="radio" name="dia" value="20"><font id="dia20" class="diaNum">20</font>
+
+				<input type="radio" name="dia" value="21"><font id="dia21" class="diaNum">21</font>
+				<input type="radio" name="dia" value="22"><font id="dia22" class="diaNum">22</font>
+				<input type="radio" name="dia" value="23"><font id="dia23" class="diaNum">23</font>
+				<input type="radio" name="dia" value="24"><font id="dia24" class="diaNum">24</font>
+				<input type="radio" name="dia" value="25"><font id="dia25" class="diaNum">25</font>
+				<input type="radio" name="dia" value="26"><font id="dia26" class="diaNum">26</font>
+				<input type="radio" name="dia" value="27"><font id="dia27" class="diaNum">27</font>
+				<input type="radio" name="dia" value="28"><font id="dia28" class="diaNum">28</font>
+				<input type="radio" name="dia" value="29"><font id="dia29" class="diaNum">29</font>
+				<input type="radio" name="dia" value="30"><font id="dia30" class="diaNum">30</font>
+				<input type="radio" name="dia" value="31"><font id="dia31" class="diaNum">31</font>	
+			</strong>
+			<input type="hidden" id="txt-hoy">
+		</header><!-- /header -->
+
+		<div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow" id="contenedor-configs">
+			<div class="lh-100">
+	        	<h6 class="mb-0 text-white lh-100">Configuraciones</h6>
+	        	<small>
+	        		<strong>Ocultar</strong>
+	        		<input id="ocultar-cancelados" type="checkbox">Cancelados
+					<input id="ocultar-liquidados" type="checkbox">Liquidados
+	        	</small>
+	        </div>
+		</div>
+
+		<div id="contenedor-calendario" class="contenedor">
+			
+		</div>
+
+		<script src="../jquery/jquery-3.2.0.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="bootstrap4.1.1/js/bootstrap.min.js"></script>
+		<script src="script_index.js"></script>
+	</body>
+</html>

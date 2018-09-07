@@ -1,0 +1,104 @@
+@font-face {
+	font-family: 'myriad_pro_light';
+	src: url('../fonts/myriad-pro/MyriadPro-Light.woff') format('woff');
+	font-style: normal;
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: 'MyriadPro-Regular';
+	font-style: normal;
+	font-weight: normal;
+	src: url('../fonts/myriad-pro-regular/MyriadPro-Regular.woff') format('woff');
+}
+
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: verdana;
+}
+
+body{
+	background: cadetblue;
+}
+
+div#contenedor{
+	background: white;
+	width: 1000px;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+div#contenedor
+	form
+		h3{
+			padding: 5px;
+			font-family: MyriadPro-Regular;
+		}
+
+div#contenedor
+	form
+		img{
+			margin-top: 10px;
+		}
+
+div#contenedor
+	form
+		div{
+			margin-top: 10px;
+		}
+
+div#contenedor
+	form
+		div
+			label{
+				display: inline-block;
+				text-align: left;
+				vertical-align: top;
+			}
+
+div#contenedor
+	form
+		div
+			label
+				input{
+					display: block;
+					width: 210px;
+				}
+
+div#contenedor
+	form#form-captura-movil
+		div#buttons
+			input[type=button], input[type=reset]{
+				background-color: limegreen;
+				color: white;
+				border-radius: 3px;
+				border: none;
+				padding: 5px 25px;
+				margin-bottom: 5px;
+				font-size: 16px;
+				font-family: MyriadPro-Regular;
+			}
+
+div#contenedor
+	form#form-captura-movil
+		div#buttons
+			input[type=button]:hover,input[type=reset]:hover{
+				background-color: forestgreen;
+			}
+
+div#contenedor
+	form#form-captura-movil
+		div#buttons
+			input[type=button]:active,input[type=reset]:active{
+				background-color: seagreen;
+			}
+
+div#contenedor
+	form#form-captura-movil
+		div#buttons
+			input[type=button]:focus,input[type=reset]:focus{ 
+				outline: 0px; 
+			}

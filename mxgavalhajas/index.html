@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Alhajas</title>
+		<link rel="shortcut icon" href="../IMG/ic_alhaja.png"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	  	<script src="script_index.js"r></script>
+		<style type="text/css" media="screen">
+			* div#alert { 
+				display: none;
+				position: fixed;
+				top: 10px;
+				left: 10%;
+				right: 10%;
+			}
+
+			* button[type=reset]:focus { outline:0px; }
+
+			div.jumbotron {
+				background:url('../IMG/font-plata.jpg') no-repeat;
+				background-size:100%;
+				background-position: 0px -100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="alert">
+
+		</div>
+
+		<form accept-charset="utf-8">
+			<a href="../index.html">
+				<img class="img-responsive" src="../IMG/logo.png" alt="Chania" width="100" height="100" style="position:fixed; top: 1%; left:1%">
+			</a>
+
+			<!-- Header -->
+			<div style="" class="jumbotron text-center">
+				<h1 id="avaluo" style="color:white; -webkit-text-stroke-color: black; -webkit-text-stroke-width: 2px">$0</h1>
+			  	<h2 style="color:white; -webkit-text-stroke-color: black; -webkit-text-stroke-width: 1px !important">Avalúo</h2>
+			  	<div class="btn-group">
+				  <button id="btn-nuevo" type="reset" class="btn btn-primary">Nuevo</button>
+				  <button id="btn-calcular" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Calcular</button>
+				</div>
+			</div>
+
+			<!-- Modal -->
+			<div id="modal">
+				
+			</div>
+			
+			<!-- Container -->
+			<div class="container">
+			  	<div class="row">
+			  		<div class="col-sm-4">
+				      	<h3>Descripción</h3>
+				      	<div class="input-group"> 
+					        <span class="input-group-addon">%</span>
+					      	<select id="txt-descripcion" class="form-control">
+							  	<option value=".8" title=".9">Prenda maciza</option><!-- .925=grs*.8, oro=grs*.9,  -->
+							  	<option value="1" title="1">Prenda lijera</option>
+							  	<option value="0" title=".075">Medalla enchapada</option>
+							  	<option value=".8" title=".9">Lote modelos repetidos</option>
+							  	<option value="1" title="1">Lote varios modelos</option>
+							  	<option value=".5" title=".9">Retacería</option><!-- .925=grs*.5, oro=grs*.9,  -->
+							</select>
+						</div>
+				    </div>
+			  		<div class="col-sm-4">
+				      	<h3>Metal</h3>
+				      	<div class="input-group"> 
+					        <span class="input-group-addon">$</span>
+					      	<select id="txt-metal" class="form-control">
+							  	<option class="plata" value="10">Plata .925</option>
+							  	<option class="plata" value="5">Plata .999</option>
+							  	<option class="oro" value="200">Oro 10K rojo</option>
+							  	<option class="oro" value="250">Oro 10K amarillo</option>
+							  	<option class="oro" value="300">Oro 14K</option>
+							  	<option class="oro" value="350">Oro 18K</option>
+							  	<option class="oro" value="400">Oro 24K</option>
+							</select>
+						</div>
+				    </div>
+			    	<div class="col-sm-4">
+				      	<h3>Peso neto</h3>
+				      	 <div class="input-group"> 
+					        <span class="input-group-addon">grs</span>
+					        <input id="txt-peso" type="number" value="0" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" id="c2" />
+				      	</div>
+				      	<small style="color:blue">* Al peso en básula restarle el peso aproximado de las piedras</small>
+				    </div>
+			  	</div>
+			</div>			
+		</form>
+	</body>
+</html>

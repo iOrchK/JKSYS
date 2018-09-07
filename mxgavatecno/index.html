@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Tecnología y electrónica</title>
+		<link rel="shortcut icon" href="../IMG/ic_movil.png"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="../jquery/jquery-3.2.0.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	  	<script src="script_index.js"></script>
+		<style type="text/css" media="screen">
+			* div#alert { 
+				display: none;
+				position: fixed;
+				top: 10px;
+				left: 10%;
+				right: 10%;
+			}
+
+			* button[type=reset]:focus { outline:0px; }
+
+			* div.clasificacion{
+			    direction: rtl;/* right to left */
+			    unicode-bidi: bidi-override;/* bidi de bidireccional */
+			    text-align: left;
+			}
+			* div.clasificacion label{ color:grey; }
+			* div.clasificacion input[type = "radio"]{ display:none; }
+			* div.clasificacion label:hover{ color:orange; }
+			* div.clasificacion label:hover ~ label{ color:orange; }
+			* div.clasificacion input[type = "radio"]:checked ~ label{ color:orange; }
+			
+		</style>
+	</head>
+	<body>
+		<div id="alert">
+
+		</div>
+
+		<!-- Modal -->
+		<div id="modal">
+				
+		</div>
+
+		<form accept-charset="utf-8">
+			<a href="../index.html">
+				<img class="img-responsive" src="../IMG/logo.png" alt="Chania" width="100" height="100" style="position:fixed; top: 1%; left:1%">
+			</a>
+
+			<!-- Header -->
+			<div style="background:url('../IMG/font-tecnologia.jpg') no-repeat; background-size:100%; background-position: 0px -200px" class="jumbotron text-center">
+				<h1 id="avaluo" style="color:white; -webkit-text-stroke-color: black; -webkit-text-stroke-width: 2px">$0</h1>
+			  	<h2 style="color:white; -webkit-text-stroke-color: black; -webkit-text-stroke-width: 1px !important">Avalúo</h2>
+			  	<div class="btn-group">
+				  <button id="btn-nuevo" type="reset" class="btn btn-primary">Nuevo</button>
+				  <button id="btn-calcular" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Calcular</button>
+				</div>
+			</div>
+
+			<!-- Container -->
+			<div class="container">
+			  	<div class="row">
+			  		<div class="col-sm-4">
+				      	<h3>Estética</h3>
+				      	<div class="clasificacion form-control">
+						    <input id="radio1" type="radio" name="estrellas" value="5" title="Excelente"><label class="star" for="radio1" title="Excelente">★</label>
+						    <input id="radio2" type="radio" name="estrellas" value="4" title="Buena"><label class="star" for="radio2" title="Buena">★</label>
+						    <input id="radio3" type="radio" name="estrellas" value="3" title="Regular"><label class="star" for="radio3" title="Regular">★</label>
+						    <input id="radio4" type="radio" name="estrellas" value="2" title="Mala"><label class="star" for="radio4" title="Mala">★</label>
+						    <input id="radio5" type="radio" name="estrellas" value="1" title="Pésima"><label class="star" for="radio5" title="Pésima">★</label>
+						</div>
+						<small style="color:blue">* Marca la cantidad de estrellas de acuerdo a la estética</small>
+						<input id="ptos" type="hidden" value="0">
+						<input id="desc" type="hidden" value="">
+						<div class="input-group">
+							<span class="input-group-addon">✓</span>
+							<div id="puntos" class="form-control" disabled="disabled">
+								
+							</div>
+						</div>
+						<div id="descripcion" class="form-control input-lg" disabled="disabled">
+							
+						</div>
+				    </div>
+			  		<div class="col-sm-4">
+				      	<h3>Antiguedad del modelo</h3>
+				      	<div class="input-group"> 
+					        <span class="input-group-addon">%</span>
+					      	<select id="txt-antiguedad" class="form-control">
+							  	<option value="1">Moderno</option>
+							  	<option value=".875">1 año</option>
+							  	<option value=".75">2 años</option>
+							  	<option value=".625">3 años</option>
+							  	<option value="0">4 años o más</option>
+							</select>
+						</div>
+						<small style="color:blue">* Selecciona la antiguedad del equipo</small>
+				    </div>
+			    	<div class="col-sm-4">
+				      	<h3>Precio</h3>
+				      	 <div class="input-group"> 
+					        <span class="input-group-addon">$</span>
+					        <input id="txt-precio" type="number" value="0" min="0" step="1" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency">
+				      	</div>
+				      	<small style="color:blue">* Precio actual</small>
+				    </div>
+			  	</div>
+			</div>		
+		</form>
+	</body>
+</html>

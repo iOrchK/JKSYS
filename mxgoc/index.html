@@ -1,0 +1,353 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Operaciones de clientes</title>
+		<link rel="stylesheet" href="">
+		<link rel="shortcut icon" href="img/ico.png"/>
+		<style type="text/css" media="screen">
+			* { font-family: arial; }
+
+			header {
+				position: fixed;
+				width: 100%;
+				padding-top: -72px;
+				font-size: 12px;
+
+				-webkit-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);
+				-moz-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);
+				box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);
+			}
+
+			* textarea#txt-obs-ope, textarea#txt-obs-ref{ color: red; }
+
+			* b, * input, * textarea { font-size: 12px; }
+
+			* input[type=date]{
+				border-left: none;
+				outline:0px;
+			}
+
+			* input.des-fec{
+				-webkit-filter: grayscale(0%) !important;
+				border-right: none;
+			}
+
+			* input[type="date"]::-webkit-clear-button {
+			    display: none;
+			    display: -moz-none-stack; /* Mozilla */
+			}
+
+			/* Removes the spin button */
+			* input[type="date"]::-webkit-inner-spin-button { 
+			    display: none;
+			    display: -moz-none-stack; /* FF2*/ /* Mozilla */
+			    *display: inline; /* IE */
+			}
+
+			* input[type="date"]::-webkit-calendar-picker-indicator {
+			    background: none;
+			    color: crimson;
+			}
+
+			header input#txt-buscar{ 
+				padding: 0px;
+				height: 45px;
+				vertical-align: top;
+			}
+
+			* select.estado {
+				height: 45px;
+				display: inline;
+				cursor: pointer;
+				vertical-align: top;
+			}
+
+			* input[type=button][disabled=disabled] { -webkit-filter: grayscale(50%); }
+
+			* input[type=button][disabled=disabled]:hover { border-color: red }
+
+			* input[type=button][disabled=disabled]:active { filter:brightness(100%) !important; }
+
+			* input[type=button] {
+				text-decoration: none;
+			    padding: 5px;
+			    /*font-weight: 600;
+			    font-size: 20px;*/
+			    color: #ffffff;
+			    background-color: crimson;
+			    border-radius: 6px;
+			    border: 1.5px solid red;
+			    cursor: pointer;
+			}
+
+			* input[type=button]:hover { border-color: darkred; }
+
+			* input[type=button]:active { filter:brightness(0.7); }
+
+			* input[type=button]:focus{ outline: 0px; }
+
+			* form input { background: white; }
+
+			table#tableEmpenos {
+			  display: table;
+			  border-collapse: collapse;
+			  border: 1px solid;
+			  width: 99%;
+			  margin: auto;
+			  margin-top: 0px;
+			}
+			table#tableEmpenos caption { 
+				background: black; 
+				border: 1px solid black; 
+				color: white;
+				 
+				width-right: -2px; 
+				margin-bottom: -2px; 
+			}
+			table#tableEmpenos thead, table#tableEmpenos tbody {
+			  width: 100%;
+			}
+			table#tableEmpenos thead {
+			  overflow-y: scroll;
+			  display: table;
+			  table-layout: fixed;
+			  font-size: 12px;
+			  width: 100%; /* assuming scrollbar width as 17px */
+			}
+			table#tableEmpenos tbody {
+			  overflow: auto;
+			  height: 575px;
+			  display: block;
+			  font-size: 12px;
+			}
+			table#tableEmpenos tr {
+			  width: 100%;
+			  text-align: left;
+			  display: table;
+			  table-layout: fixed;
+			}
+			table#tableEmpenos tbody tr:hover{
+				filter:brightness(0.7);
+			}
+
+			table#tabRefrendos {
+				display: table;
+				border-collapse: collapse;
+			  	width: 98%;
+			  	margin: auto;
+			  	margin-top: 0px;
+			}
+			table#tabRefrendos caption { background:#FF6600; border: 1px solid; width-right: calc(100%-2px); margin-bottom: -2px; }
+			table#tabRefrendos thead, table#tabRefrendos tbody { width: 100%; }
+			table#tabRefrendos thead {
+			  overflow-y: scroll;
+			  display: table;
+			  table-layout: fixed;
+			  font-size: 12px;
+			  width: 100%; /* assuming scrollbar width as 17px */
+			}
+			table#tabRefrendos tbody {
+			  overflow: auto;
+			  overflow-x: hidden;
+			  height: 188px;
+			  display: block;
+			  font-size: 12px;
+			}
+			table#tabRefrendos tr {
+			  width: 100%;
+			  text-align: left;
+			  display: table;
+			  table-layout: fixed;
+			}
+			table#tabRefrendos tbody tr:hover {	filter:brightness(0.7);	}
+			table#tabRefrendos tbody td { border: inset 0pt; }
+
+			* form#formEmpeño input[disabled=disabled], * form#formEmpeño input[readonly=readonly] { -webkit-filter: grayscale(50%); }
+
+			div#bgJAlert{
+				background: rgba(0, 0, 0, 0.8);
+				width: 100%;
+				height: 100%;
+				display: none;
+				position: fixed;
+				margin: 0px;
+				top: 0;
+			}
+			div#bgJAlert div#contJAlert{
+				top: 10%;
+				left: 25%;
+				width: 50%;
+				margin: 0px;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body style="background:silver; margin:0px;">
+		<header style="background:navy; color:white;">
+			<a href="../index.html" title="Click para regresar al Home">
+				<img src="img/logo.png" width="40" height="40" style="margin-left:5px; cursor: pointer">
+			</a>
+			<b style="margin-left: 20px; line-height: 40px; vertical-align: top">Buscar y seleccionar cliente: </b>
+			<input type="search" id="txt-buscar" name="" placeholder="Escribe aquí y presiona Enter" size="45" list="listaClientes" title="Tip 1: Ingresa nombre de titular o cotitular o número de cliente. Presiona Enter. Presiona la tecla ↓ para deslizarte hasta el nombre del cliente y presiona Enter. &#10;Tip 2: Borra el contenido o presiona la X. Vuelve al Tip 1.">
+			<datalist id="listaClientes">
+					
+			</datalist>
+			<b style="margin-left:20px; line-height: 40px; vertical-align: top">Mostrar operaciones: </b>
+			<select class="estado">
+				<option value="Todos" selected="selected">Todos</option>
+				<option value="Vigente">Vigentes</option>
+				<option value="Liquidado">Liquidados</option>
+				<option value="Cancelado">Cancelados</option>
+			</select>
+			<!--
+			<input type="radio" class="estado" name="estado" value="Todos">Todos
+			<input type="radio" class="estado" name="estado" value="Vigente" checked>Vigentes
+			<input type="radio" class="estado" name="estado" value="Liquidado">Liquidados
+			<input type="radio" class="estado" name="estado" value="Cancelado">Cancelados
+			-->
+		</header><!-- /header -->
+
+		<aside style="float:left; width: 45%; margin-top: 68px; margin-bottom: 0px;">
+			<p>
+				<table id="tableEmpenos" border="0">
+					<caption><b>Historial de operaciones</b></caption>
+					<thead style="background:black; color:white">
+						<tr>
+							<th style="width: 15%">Num</th>
+							<th style="width: 55%">Descripción</th>
+							<th style="width: 10%">Anclaje</th>
+							<th style="width: 10%">Ent. Inm.</th>
+							<th style="width: 10%">Validado</th>
+						</tr>
+					</thead>
+					<tbody id="contenedor-empenos" style="background:white">
+						
+					</tbody>
+				</table>
+			</p>
+		</aside>
+
+		<aside style="float:right; vertical-align: top; width: 55%; margin-top: 62px;">
+			<fieldset style="background:whitesmoke; margin-top:8px">
+				<legend>
+					<input type="button" id="btn-nuevo" value="Nuevo">
+					<input type="button" id="btn-agregar" value="Agregar">
+					<input type="button" id="btn-modificar" value="Actualizar">
+					<input type="button" id="btn-cancelar" value="Cancelar">
+					<input type="button" id="btn-liquidar" value="Liquidar">
+					<input type="button" id="btn-recapitalizar" value="Recapitalizar">
+					<input type="button" id="btn-reactivar" value="Reactivar">
+					<input type="button" id="btn-reempenar" value="Reempeñar">
+					<input type="button" id="btn-generar-refrendo" value="Generar cargo">
+				</legend>
+				<b>Datos de la operación</b><hr>
+				<form id="formEmpeño" style="font-size: 12px">
+					Fecha de celebración: <input type="text" class="des-fec" id="txt-des-fec" placeholder="Sin fecha" size="15" readonly="readonly"><input type="date" id="txt-fecha" name="txt-fecha" style="width:15px">
+					<input type="hidden" id="txt-folio" name="txt-folio">
+					<input type="hidden" id="txt-id-cte" name="txt-id-cte">
+					Num. Cte: <input type="text" id="txt-num-cte" placeholder="Sin num. cte" size="7" maxlength="11" list="listaNumCliente">
+					<datalist id="listaNumCliente">
+					
+					</datalist>
+					<p>Titular / Cotitular: <input type="text" id="txt-nom-tit" placeholder="Sin titular" size="90" readonly="readonly"></p>
+					<p>Cotitular(es) adicional(es): <input type="text" id="txt-nom-cot" name="txt-nom-cot" placeholder="Sin cotitular" size="85" maxlength="100"></p>
+					<p>
+						Teléfono(s): <input type="text" id="txt-telefono" placeholder="Sin teléfono" size="35" readonly="readonly">
+						Domicilio(s): <input type="text" id="txt-domicilio" placeholder="Sin domicilio" size="50" readonly="readonly">
+					</p>
+					<p>
+						Capital: <input type="number" id="txt-capital" name="txt-capital" placeholder="Sin capital" min="0" max="999999" maxlength="6" size="10">
+						Tasa de interés: <input type="text" id="txt-tasa-int" name="txt-tasa-int" placeholder="Sin tasa de interés" maxlength="3" size="10" list="listModOpe">
+						<datalist id="listModOpe">
+							<option id="mo1" value="0%">Préstamo sin interés</option>
+							<option id="mo2" value="1%">Préstamo al 1% de interés</option>
+							<option id="mo3" value="2%">Préstamo al 2% de interés</option>
+							<option id="mo4" value="3%">Préstamo al 3% de interés</option>
+							<option id="mo5" value="4%">Préstamo al 4% de interés</option>
+							<option id="mo6" value="5%">Préstamo al 5% de interés (Oro)</option>
+							<option id="mo7" value="6%">Préstamo al 6% de interés</option>
+							<option id="mo8" value="7%">Préstamo al 7% de interés</option>
+							<option id="mo9" value="8%">Préstamo al 8% de interés</option>
+							<option id="mo10" value="9%">Préstamo al 9% de interés</option>
+							<option id="mo11" value="10%">Préstamo al 10% de interés</option>
+							<option id="mo12" value="VEN">Venta sin interés</option>
+							<option id="mo13" value="ACR">Deudas a acreedores</option>
+						</datalist>
+						Interés: <input type="number" id="txt-interes" name="txt-interes" placeholder="Sin interés" min="0" max="9999" maxlength="5" size="10">
+					</p>
+					<p style="display: inline; vertical-align: top">
+						Tipo de inventario: <textarea id="txt-des-gen" name="txt-des-gen" placeholder="Sin descripción breve" rows="4" cols="15" maxlength="25"></textarea>
+						Inventario: <textarea id="txt-car-pre" name="txt-car-pre" placeholder="Sin características de la garantía" rows="4" cols="65"></textarea>
+						Observaciones: <textarea id="txt-obs-ope" name="txt-obs-ope" placeholder="Sin observaciones de la operación" rows="2" cols="97" maxlength="255"></textarea>
+					</p>
+					<p>
+						<input type="checkbox" id="txt-anclaje" name="txt-anclaje" value="">Anclaje 
+						<input type="checkbox" id="txt-ent-inm" name="txt-ent-inm" value="">Entrega inmediata 
+						<input type="checkbox" id="txt-validado" name="txt-validado" value="">Validado
+					</p>
+				</form>
+				<table id="tabRefrendos" border="1" style="background:cornsilk;">
+					<caption><b>Historial de cargos</b></caption>
+					<thead style="background:#FF6600;">
+						<tr bgcolor="#FF6600">
+							<th>Num</th>
+							<th>Fecha venc.</th>
+							<th>Fecha pago</th>
+							<th>Interés</th>
+							<th>Abono a capital</th>
+							<th>Recargo</th>
+							<th>Total pagado</th>
+							<th>Saldo capital</th>
+						</tr>
+					</thead>
+					<tbody id="contenedor-refrendos">
+
+					</tbody>
+				</table>
+			</fieldset>
+		</aside>
+
+		<div id="bgJAlert">
+			<div id="contJAlert">
+				<fieldset style="background:whitesmoke; font-size: 12px;">
+					<legend>
+						<input type="button" id="btn-modificar-refrendo" value="Actualizar">
+						<input type="button" id="btn-cancelar-refrendo" value="Cancelar">
+					</legend>
+					<b>Datos del cargo</b><hr>
+					<form id="formJAlert">
+						<input type="hidden" id="txt-fol-pag" name="txt-fol-pag">
+						<p>
+							Fecha de vencimiento: <input type="text" class="des-fec" id="txt-des-fec-ven" placeholder="Sin fecha" readonly="readonly" size="15"> <input type="date" id="txt-fec-ref" name="txt-fec-ref" style="width:15px; margin-left:-5px">
+							Fecha pagado: <input type="text" class="des-fec" id="txt-des-fec-pag" placeholder="Sin fecha" readonly="readonly" size="15"> <input type="date" id="txt-fec-pag" name="txt-fec-pag" style="width:15px; margin-left:-5px">
+						</p>
+						<p>
+							Interés: <input type="number" id="txt-int-pag" name="txt-int-pag" placeholder="Sin interés" size="" min="0" max="99999" size="5" maxlength="5">
+							Abono a capital: <input type="number" id="txt-abo-pag" name="txt-abo-pag" placeholder="Sin abono a capital" min="0" max="999999" size="6" maxlength="6">
+							Recargos: <input type="number" id="txt-rec-pag" name="txt-rec-pag" placeholder="Sin recargos" min="0" max="9999" size="4" maxlength="4">
+						</p>
+						<p>
+							Total pagado: <input type="number" id="txt-tot-pag" name="txt-tot-pag" placeholder="0" readonly="readonly">
+							<input type="hidden" id="txt-sal-cap">
+							Saldo de capital: <input type="number" id="txt-nue-sal-cap" name="txt-nue-sal-cap" placeholder="0" readonly="readonly">
+						</p>
+						<p>
+							<b>Estado: </b>
+							<!--<input type="radio" name="estadoRefrendo" value="Cargado">Cargado-->
+							<input type="radio" name="estadoRefrendo" value="Vencido">Vencido
+							<input type="radio" name="estadoRefrendo" value="Pagado">Pagado
+						</p>
+						<p style="display: inline; vertical-align: top">
+							Observaciones: <textarea id="txt-obs-ref" name="txt-obs-ref" placeholder="Sin observaciones del refrendo" rows="4" cols="65" maxlength="255"></textarea>
+						</p>
+					</form>
+				</fieldset>
+			</div>
+		</div>
+		
+		<script src="../jquery/jquery-3.2.0.min.js"></script>
+		<script src="script_index.js"></script>
+	</body>
+</html>
